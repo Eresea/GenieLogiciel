@@ -12,4 +12,12 @@ private:
 public :
 	MatCreuse();
 	MatCreuse(vector< vector<int> >, int, int);
+
+
+/*  plein de pb, a revoir
+
+	MatCreuse operator+(MatCreuse const& a); 
+	MatCreuse operator-(MatCreuse const& a);
+
+*/
 };
