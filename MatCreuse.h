@@ -13,5 +13,11 @@ public :
 	MatCreuse();
 	MatCreuse(vector< vector<int> >, int, int);
 
-	MatCreuse operator+(MatCreuse const& a);
+
+/*  plein de pb, a revoir
+
+	MatCreuse operator+(MatCreuse const& a); 
+	MatCreuse operator-(MatCreuse const& a);
+
+*/
 };

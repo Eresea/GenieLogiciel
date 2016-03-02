@@ -26,6 +26,10 @@ MatCreuse::MatCreuse(vector< vector<int> > V, int w, int h)
 }
 
 
+
+
+
+/*
 MatCreuse operator+(MatCreuse const& a)
 {
 	int w,h;
@@ -55,3 +59,33 @@ MatCreuse operator+(MatCreuse const& a)
 
 	return tmp;
 }
+
+MatCreuse operator-(MatCreuse const& a)
+{
+	int w,h;
+	
+
+	if(a.Height<=Height) h=a.Height;
+	else h=Height;
+
+	if(a.Width<=Width) w=a.Width;
+	else w=Width;	
+
+	MatCreuse tmp;
+	tmp.Width=w;
+	tmp.Height=h;
+	tmp.Mat.resize(h);
+
+	for(int i=0; i<h;i++)
+	tmp.Mat[i].resize(w);
+
+	for(int i=0;i<a.Height;i++)
+	{
+		for(int j=0;j<a.leight;i++)
+		{
+			tmp.Mat[i][j]= a.Mat[i][j]+Mat[i][j];
+		}
+	}
+
+	return tmp;
+}*/
