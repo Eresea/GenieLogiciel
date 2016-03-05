@@ -8,3 +8,11 @@
 !*/
 *~
 *.o
+*.pub
+
+#Utilisation CodeBlocks
+bin/ #Ignore dossier bin
+obj/
+*.cbp #Fichier de projet CodeBlocks
+*.depend
+*.layout

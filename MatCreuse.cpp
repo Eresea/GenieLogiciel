@@ -25,6 +25,49 @@ MatCreuse::MatCreuse(vector< vector<int> > V, int w, int h)
 	Mat[i].resize(Width);
 }
 
+bool MatCreuse::ReadFile(string url)
+{
+	ifstream fic(url.c_str());
+	if(fic)						// Si le fichier existe
+	{
+		string s;
+	    int i=0;
+	    int j=0;
+	    while(fic>>s)			// Tant qu'il y a des lignes dans le fichier
+		{
+			Mat[i][j]=atoi(s.c_str());	//Mat[i][j] = (int)ligne
+			if(j==2)
+			{
+				j=0;
+				i++;	
+			}
+			else
+			{
+				j++;
+			}
+		}
+		fic.close();
+		ofstream fic2(url.c_str());	//Ecrire dans le fichier
+		if(fic2)					//fic2 valide
+		{
+			int t;
+		    for(int l=0;l<i;l++)	// Pour chaque élément visité (while au dessus)
+			{
+				t=Mat[l][0];
+				Mat[l][0]=Mat[l][1];	//Inverse Mat[l][0] et Mat[l][1]
+				Mat[l][1]=t;			//
+				fic2<<Mat[l][0];
+				fic2<<" ";
+				fic2<<Mat[l][1];
+				fic2<<" ";
+				fic2<<Mat[l][2];
+				fic2<<endl;	
+			}
+		fic2.close();
+		}
+	}
+}
+
 
 
 

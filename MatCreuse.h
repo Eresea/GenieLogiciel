@@ -1,5 +1,8 @@
 #include <string>
 #include <vector>
+#include <fstream>
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -12,6 +15,7 @@ private:
 public :
 	MatCreuse();
 	MatCreuse(vector< vector<int> >, int, int);
+	void ReadFile(string)
 
 
 /*  plein de pb, a revoir
