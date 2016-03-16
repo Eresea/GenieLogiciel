@@ -1,5 +1,5 @@
 git add .
-if [ "$#" -e 1 ];
+if [ "$#" -e 1 ]
 then
 git commit -m "$1"
 else
