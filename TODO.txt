@@ -1,0 +1,13 @@
+Remplacer le modèle de matrices de vecteurs par 3 vector<int> :
+Au lieu de créer des grandes matrices pour peu de valeurs,
+on va créer les vecteurs ;
+- Valeurs
+- Lignes
+- Colonnes
+
+Exemple : 000000010001
+	  000110001000
+
+Valeurs : 1,1,1,1,1
+Lignes : 0,0,1,1,1
+Colonnes : 8,11,4,5,9
