@@ -61,60 +61,39 @@ int MatCreuse::indice(int l,int c)
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*void MatCreuse::ReadFile(string url)
+void MatCreuse::ReadFile(string url)
 {
 	ifstream fic(url.c_str());
 	if(fic)						// Si le fichier existe
 	{
 		string s;
-	    int i=0;
-	    int j=0;
+        vector<string> Str;
 	    while(fic>>s)			// Tant qu'il y a des lignes dans le fichier
 		{
-            Valeurs.insert(Valeur.end(),atoi(s.c_str()));
-            Lignes.insert(Lignes.end(),i);
-            Colonnes.insert(Colonnes.end(),j);
-			if(j==2)
-			{
-				j=0;
-				i++;	
-			}
-			else
-			{
-				j++;
-			}
+            Str = Split(s,',');
+            Valeurs.insert(Valeurs.end(),atoi(Str[2].c_str()));
+            Lignes.insert(Lignes.end(),atoi(Str[0].c_str()));
+            Colonnes.insert(Colonnes.end(),atoi(Str[1].c_str()));
 		}
 		fic.close();
-		ofstream fic2(url.c_str());	//Ecrire dans le fichier
-		if(fic2)					//fic2 valide
-		{
-			int t;
-		    for(int l=0;l<i;l++)	// Pour chaque élément visité (while au dessus)
-			{
-				t=Mat[l][0];
-				Mat[l][0]=Mat[l][1];	//Inverse Mat[l][0] et Mat[l][1]
-				Mat[l][1]=t;			//
-				fic2<<Mat[l][0];
-				fic2<<" ";
-				fic2<<Mat[l][1];
-				fic2<<" ";
-				fic2<<Mat[l][2];
-				fic2<<endl;	
-			}
-		fic2.close();
-		}
+    }
+}
+
+void MatCreuse::Afficher()
+{
+	for(int i=0;i<Valeurs.size();i++)
+	{
+		cout << Lignes[i] << "," << Colonnes[i] << " : " << Valeurs[i] << endl;
 	}
-}*/
+}
+
+void MatCreuse::WriteFile(string s)
+{
+	ofstream File;
+	File.open(s.c_str());
+	for(int i=0;i<Valeurs.size();i++)
+	{
+		File << Lignes[i] << "," << Colonnes[i] << "," << Valeurs[i] << '\n';
+	}
+}
 
