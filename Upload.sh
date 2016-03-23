@@ -6,4 +6,4 @@ git commit -m "$1"
 else
 git commit -m "$0"
 fi
-git push --set-upstream origin fail
+git push origin master
