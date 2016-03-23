@@ -3,25 +3,19 @@
 #include <fstream>
 #include <cstdlib>
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 class MatCreuse{
 private:
-	vector< vector<int> > Mat;
-	int Width;
-	int Height;
-
+	vector<int> Valeurs;
+	vector<int> Lignes;
+	vector<int> Colonnes;
 public :
 	MatCreuse();
-	MatCreuse(vector< vector<int> >, int, int);
-	void ReadFile(string);
-
-
-/*  plein de pb, a revoir
-
-	MatCreuse operator+(MatCreuse const& a); 
-	MatCreuse operator-(MatCreuse const& a);
-
-*/
+	MatCreuse(vector<int>,vector<int>,vector<int>);
+	void Add(int,int,int);
+	int Get(int,int);
+	//void ReadFile(string);
 };

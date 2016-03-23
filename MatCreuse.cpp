@@ -4,28 +4,39 @@ using namespace std;
 
 MatCreuse::MatCreuse()
 {
-	Width = 10;
-	Height = 10;
-
-
-	Mat.resize(Height);
-
-	for(int i=0; i<Height;i++)
-	Mat[i].resize(Width);
+	Valeurs.clear();
+    Lignes.clear();
+    Colonnes.clear();
 }
 
-MatCreuse::MatCreuse(vector< vector<int> > V, int w, int h)
+MatCreuse::MatCreuse(vector<int> V,vector<int> L,vector<int> C)
 {
-	Width = w;
-	Height = h;
-
-	Mat.resize(Height);	
-
-	for(int i=0; i<Height;i++)
-	Mat[i].resize(Width);
+	for(int i=0;i<V.size();i++)
+	{
+		Valeurs.insert(Valeurs.end(),V.at(i));
+        Lignes.insert(Lignes.end(),L.at(i));
+        Colonnes.insert(Colonnes.end(),C.at(i));
+	}
 }
 
-void MatCreuse::ReadFile(string url)
+void MatCreuse::Add(int l,int c,int v)
+{
+    Valeurs.push_back(v);
+    Lignes.push_back(l);
+    Colonnes.push_back(c);
+}
+
+int MatCreuse::Get(int l,int c)
+{
+    int line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
+    while(Colonnes.at(line) != c)
+    {
+        line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
+    }
+    return Valeurs.at(line);
+}
+
+/*void MatCreuse::ReadFile(string url)
 {
 	ifstream fic(url.c_str());
 	if(fic)						// Si le fichier existe
@@ -35,7 +46,9 @@ void MatCreuse::ReadFile(string url)
 	    int j=0;
 	    while(fic>>s)			// Tant qu'il y a des lignes dans le fichier
 		{
-			Mat[i][j]=atoi(s.c_str());	//Mat[i][j] = (int)ligne
+            Valeurs.insert(Valeur.end(),atoi(s.c_str()));
+            Lignes.insert(Lignes.end(),i);
+            Colonnes.insert(Colonnes.end(),j);
 			if(j==2)
 			{
 				j=0;
@@ -66,7 +79,7 @@ void MatCreuse::ReadFile(string url)
 		fic2.close();
 		}
 	}
-}
+}*/
 
 
 
