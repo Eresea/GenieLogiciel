@@ -25,7 +25,7 @@ MatCreuse::MatCreuse(vector< vector<int> > V, int w, int h)
 	Mat[i].resize(Width);
 }
 
-bool MatCreuse::ReadFile(string url)
+void MatCreuse::ReadFile(string url)
 {
 	ifstream fic(url.c_str());
 	if(fic)						// Si le fichier existe

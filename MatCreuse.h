@@ -15,7 +15,7 @@ private:
 public :
 	MatCreuse();
 	MatCreuse(vector< vector<int> >, int, int);
-	void ReadFile(string)
+	void ReadFile(string);
 
 
 /*  plein de pb, a revoir
