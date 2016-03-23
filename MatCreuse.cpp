@@ -31,7 +31,7 @@ int MatCreuse::Get(int l,int c)
     int line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
     while(Colonnes.at(line) != c)
     {
-        line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
+        line = find(l+1+Lignes.begin(),Lignes.end(),l) - Lignes.begin();
     }
     return Valeurs.at(line);
 }
