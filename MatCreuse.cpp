@@ -4,7 +4,7 @@ using namespace std;
 
 MatCreuse::MatCreuse()
 {
-	Valeurs.clear();
+    Valeurs.clear();
     Lignes.clear();
     Colonnes.clear();
 }
@@ -13,7 +13,7 @@ MatCreuse::MatCreuse(vector<int> V,vector<int> L,vector<int> C)
 {
 	for(int i=0;i<V.size();i++)
 	{
-		Valeurs.insert(Valeurs.end(),V.at(i));
+	Valeurs.insert(Valeurs.end(),V.at(i));
         Lignes.insert(Lignes.end(),L.at(i));
         Colonnes.insert(Colonnes.end(),C.at(i));
 	}
@@ -21,20 +21,57 @@ MatCreuse::MatCreuse(vector<int> V,vector<int> L,vector<int> C)
 
 void MatCreuse::Add(int l,int c,int v)
 {
-    Valeurs.push_back(v);
-    Lignes.push_back(l);
-    Colonnes.push_back(c);
+	int tmp=indice(l,c);
+	if(tmp==-1)
+	{
+    	Valeurs.push_back(v);
+    	Lignes.push_back(l);
+    	Colonnes.push_back(c);
+	}
+	else
+	{
+		Valeurs[tmp]=v;
+	}
 }
 
-int MatCreuse::Get(int l,int c)
+
+bool MatCreuse::Get(int l,int c, int &v)
+{
+	if (indice(l,c) != -1)
+	{
+		v=Valeurs.at(indice(l,c));
+		return true;
+	} 
+	else return false;
+}
+
+
+
+int MatCreuse::indice(int l,int c)
 {
     int line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
     while(Colonnes.at(line) != c)
     {
-        line = find(l+1+Lignes.begin(),Lignes.end(),l) - Lignes.begin();
+        line = find(line+1+Lignes.begin(),Lignes.end(),l) - Lignes.begin();
     }
-    return Valeurs.at(line);
+
+	
+	if(line != Lignes.end()-Lignes.begin()) return line;
+	else return -1;
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*void MatCreuse::ReadFile(string url)
 {
@@ -81,67 +118,3 @@ int MatCreuse::Get(int l,int c)
 	}
 }*/
 
-
-
-
-
-/*
-MatCreuse operator+(MatCreuse const& a)
-{
-	int w,h;
-	
-
-	if(a.Height<=Height) h=a.Height;
-	else h=Height;
-
-	if(a.Width<=Width) w=a.Width;
-	else w=Width;	
-
-	MatCreuse tmp;
-	tmp.Width=w;
-	tmp.Height=h;
-	tmp.Mat.resize(h);
-
-	for(int i=0; i<h;i++)
-	tmp.Mat[i].resize(w);
-
-	for(int i=0;i<a.Height;i++)
-	{
-		for(int j=0;j<a.leight;i++)
-		{
-			tmp.Mat[i][j]= a.Mat[i][j]+Mat[i][j];
-		}
-	}
-
-	return tmp;
-}
-
-MatCreuse operator-(MatCreuse const& a)
-{
-	int w,h;
-	
-
-	if(a.Height<=Height) h=a.Height;
-	else h=Height;
-
-	if(a.Width<=Width) w=a.Width;
-	else w=Width;	
-
-	MatCreuse tmp;
-	tmp.Width=w;
-	tmp.Height=h;
-	tmp.Mat.resize(h);
-
-	for(int i=0; i<h;i++)
-	tmp.Mat[i].resize(w);
-
-	for(int i=0;i<a.Height;i++)
-	{
-		for(int j=0;j<a.leight;i++)
-		{
-			tmp.Mat[i][j]= a.Mat[i][j]+Mat[i][j];
-		}
-	}
-
-	return tmp;
-}*/

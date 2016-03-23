@@ -16,6 +16,7 @@ public :
 	MatCreuse();
 	MatCreuse(vector<int>,vector<int>,vector<int>);
 	void Add(int,int,int);
-	int Get(int,int);
+	int indice(int,int);
+	bool Get(int,int,int&);
 	//void ReadFile(string);
 };
