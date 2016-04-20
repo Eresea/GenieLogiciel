@@ -42,7 +42,7 @@ bool MatCreuse::Get(int l,int c, int &v)
 		v=Valeurs.at(indice(l,c));
 		return true;
 	} 
-	else return false;
+	else { v = 0; return false; }
 }
 
 
