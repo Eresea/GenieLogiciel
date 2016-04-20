@@ -7,15 +7,21 @@ MatCreuse::MatCreuse()
     Valeurs.clear();
     Lignes.clear();
     Colonnes.clear();
+	nbLignes = 0;
+	nbColonnes = 0;
 }
 
 MatCreuse::MatCreuse(vector<int> V,vector<int> L,vector<int> C)
 {
+	nbLignes = 0;
+	nbColonnes = 0;
 	for(int i=0;i<V.size();i++)
 	{
 	Valeurs.insert(Valeurs.end(),V.at(i));
         Lignes.insert(Lignes.end(),L.at(i));
         Colonnes.insert(Colonnes.end(),C.at(i));
+		if(L.at(i) > nbLignes) nbLignes = L.at(i);
+		if(C.at(i) > nbColonnes) nbColonnes = C.at(i);
 	}
 }
 
@@ -32,6 +38,8 @@ void MatCreuse::Add(int l,int c,int v)
 	{
 		Valeurs[tmp]=v;
 	}
+	if(l > nbLignes) nbLignes = l;
+	if(c > nbColonnes) nbColonnes = c;
 }
 
 
@@ -47,7 +55,7 @@ bool MatCreuse::Get(int l,int c, int &v)
 
 
 
-int MatCreuse::indice(int l,int c)
+int MatCreuse::indice(int l,int c) const
 {
     int line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
 	if(Colonnes.size() <= c || Lignes.size() <= l) return -1;
@@ -75,6 +83,8 @@ void MatCreuse::ReadFile(string url)
             Valeurs.insert(Valeurs.end(),atoi(Str[2].c_str()));
             Lignes.insert(Lignes.end(),atoi(Str[0].c_str()));
             Colonnes.insert(Colonnes.end(),atoi(Str[1].c_str()));
+			if(atoi(Str[0].c_str()) > nbLignes) nbLignes = atoi(Str[0].c_str());
+			if(atoi(Str[1].c_str()) > nbColonnes) nbColonnes = atoi(Str[1].c_str());
 		}
 		fic.close();
     }
