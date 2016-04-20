@@ -9,6 +9,7 @@
 *~
 *.o
 *.pub
+!*makefile
 
 #Utilisation CodeBlocks
 bin/ #Ignore dossier bin
