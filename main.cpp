@@ -13,7 +13,7 @@ M.ReadFile("Test.txt");
 M.Afficher();
 M.WriteFile("Test.txt");
 
-if(!M.Get(10,3,tmp)) cout << tmp << endl;
+if(M.Get(0,0,tmp)) cout << tmp << endl;
 
 
 return 0;

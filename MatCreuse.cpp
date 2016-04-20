@@ -50,7 +50,8 @@ bool MatCreuse::Get(int l,int c, int &v)
 int MatCreuse::indice(int l,int c)
 {
     int line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
-    while(Colonnes.at(line) != c)
+	if(Colonnes.size() <= c || Lignes.size() <= l) return -1;
+    while((Colonnes.at(line) != c))
     {
         line = find(line+1+Lignes.begin(),Lignes.end(),l) - Lignes.begin();
     }
