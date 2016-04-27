@@ -1,5 +1,5 @@
 #include <iostream>
-#include "MatCreuse.h"
+#include "matcreuse.h"
 #include <string>
 
 using namespace std;

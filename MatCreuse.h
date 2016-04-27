@@ -1,5 +1,5 @@
 /**
- * \file MatCreuse.h
+ * \file matcreuse.h
  * \brief Bibliothèque de matrices creuses
  * \author Groupe G1
  * \version 0.1

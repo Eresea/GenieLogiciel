@@ -1,4 +1,4 @@
-#include "MatCreuse.h"
+#include "matcreuse.h"
 
 using namespace std;
 
