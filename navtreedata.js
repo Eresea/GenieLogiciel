@@ -24,7 +24,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_mat_creuse_8cpp.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';
