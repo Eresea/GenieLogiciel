@@ -1,3 +1,14 @@
+/**
+ * \file MatCreuse.h
+ * \brief Bibliothèque de matrices creuses
+ * \author Groupe G1
+ * \version 0.1
+ * \date 27 april 2016
+ *
+ * Bibliothèque de création de matrices creuses.
+ *
+ */
+
 #include <string>
 #include <vector>
 #include <fstream>
