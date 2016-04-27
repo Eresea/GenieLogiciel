@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['matcreuse',['MatCreuse',['../class_mat_creuse.html',1,'']]]
+  ['matcreuse',['matcreuse',['../classmatcreuse.html',1,'']]]
 ];

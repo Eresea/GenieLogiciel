@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['add',['Add',['../class_mat_creuse.html#a287f5c2bee89e36e17240d3bc59d806f',1,'MatCreuse']]],
-  ['afficher',['Afficher',['../class_mat_creuse.html#a74b085231daab36b40a8d54cfcabe162',1,'MatCreuse']]]
+  ['add',['Add',['../classmatcreuse.html#a80c151a1d198a75aa9a6749c30a33473',1,'matcreuse']]],
+  ['afficher',['Afficher',['../classmatcreuse.html#afa76dc91ea45f1cf19523f873cec7025',1,'matcreuse']]]
 ];

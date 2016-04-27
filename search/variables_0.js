@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nbcolonnes',['nbColonnes',['../class_mat_creuse.html#aaeadb134fd39246ac09211b60b3f8c93',1,'MatCreuse']]],
-  ['nblignes',['nbLignes',['../class_mat_creuse.html#a7b945e4a84fb469d36defd26a661f837',1,'MatCreuse']]]
+  ['nbcolonnes',['nbColonnes',['../classmatcreuse.html#a8757c3192397c12ecf0d1081ca634cf4',1,'matcreuse']]],
+  ['nblignes',['nbLignes',['../classmatcreuse.html#a4e5b5711de12b3bc9932a2ed4c2ced19',1,'matcreuse']]]
 ];
