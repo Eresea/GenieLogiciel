@@ -1,13 +1,13 @@
 all: Projet
 
-Projet: main.o MatCreuse.o
-	g++ main.o MatCreuse.o -o Projet
+Projet: main.o matcreuse.o
+	g++ main.o matcreuse.o -o Projet
 
 main.o: main.cpp
 	g++ -c main.cpp
 
-MatCreuse.o: MatCreuse.cpp
-	g++ -c MatCreuse.cpp
+matcreuse.o: matcreuse.cpp
+	g++ -c matcreuse.cpp
 
 clean:
 	rm *o Projet

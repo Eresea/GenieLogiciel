@@ -2,7 +2,7 @@
 
 using namespace std;
 
-MatCreuse::MatCreuse()
+matcreuse::matcreuse()
 {
     Valeurs.clear();
     Lignes.clear();
@@ -11,7 +11,7 @@ MatCreuse::MatCreuse()
 	nbColonnes = 0;
 }
 
-MatCreuse::MatCreuse(vector<int> V,vector<int> L,vector<int> C)
+matcreuse::matcreuse(vector<int> V,vector<int> L,vector<int> C)
 {
 	nbLignes = 0;
 	nbColonnes = 0;
@@ -25,7 +25,7 @@ MatCreuse::MatCreuse(vector<int> V,vector<int> L,vector<int> C)
 	}
 }
 
-void MatCreuse::Add(int l,int c,int v)
+void matcreuse::Add(int l,int c,int v)
 {
 	int tmp=indice(l,c);
 	if(tmp==-1)
@@ -43,7 +43,7 @@ void MatCreuse::Add(int l,int c,int v)
 }
 
 
-bool MatCreuse::Get(int l,int c, int &v)
+bool matcreuse::Get(int l,int c, int &v)
 {
 	if (indice(l,c) != -1)
 	{
@@ -55,7 +55,7 @@ bool MatCreuse::Get(int l,int c, int &v)
 
 
 
-int MatCreuse::indice(int l,int c) const
+int matcreuse::indice(int l,int c) const
 {
     int line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
 	if(Colonnes.size() <= c || Lignes.size() <= l) return -1;
@@ -70,7 +70,7 @@ int MatCreuse::indice(int l,int c) const
     
 }
 
-void MatCreuse::ReadFile(string url)
+void matcreuse::ReadFile(string url)
 {
 	ifstream fic(url.c_str());
 	if(fic)						// Si le fichier existe
@@ -90,7 +90,7 @@ void MatCreuse::ReadFile(string url)
     }
 }
 
-void MatCreuse::Afficher()
+void matcreuse::Afficher()
 {
 	for(int i=0;i<Valeurs.size();i++)
 	{
@@ -98,7 +98,7 @@ void MatCreuse::Afficher()
 	}
 }
 
-void MatCreuse::WriteFile(string s)
+void matcreuse::WriteFile(string s)
 {
 	ofstream File;
 	File.open(s.c_str());

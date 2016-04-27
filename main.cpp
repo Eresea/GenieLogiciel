@@ -8,8 +8,8 @@ int main(int argc , char** argv)
 {
 vector<int> N;
 int tmp(0);
-MatCreuse M(N,N,N);
-MatCreuse M2(N,N,N);
+matcreuse M(N,N,N);
+matcreuse M2(N,N,N);
 M.ReadFile("Test.txt");
 M2.ReadFile("Test2.txt");
 //M.Afficher();

@@ -19,7 +19,7 @@
 
 using namespace std;
 
-class MatCreuse{
+class matcreuse{
 private:
 	vector<int> Valeurs;
 	vector<int> Lignes;
@@ -27,8 +27,8 @@ private:
 public :
 	int nbLignes;
 	int nbColonnes;
-	MatCreuse();
-	MatCreuse(vector<int>,vector<int>,vector<int>);
+	matcreuse();
+	matcreuse(vector<int>,vector<int>,vector<int>);
 	void Add(int,int,int);
 	int indice(int,int) const;
 	bool Get(int,int,int&);
@@ -36,7 +36,7 @@ public :
 	void WriteFile(string);
 	void Afficher();
 
-	MatCreuse& operator*=(const MatCreuse& b)
+	matcreuse& operator*=(const matcreuse& b)
 	{
 		if(nbLignes != b.nbColonnes)
 		{
@@ -63,7 +63,7 @@ public :
 		return *this;
 	}
 
-friend MatCreuse operator*(MatCreuse a, const MatCreuse& b)
+friend matcreuse operator*(matcreuse a, const matcreuse& b)
 {
 	a*=b;
 	return a;
