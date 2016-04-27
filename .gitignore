@@ -4,6 +4,8 @@
 # Unignore all with extensions
 !*.*
 
+html/
+
 # Unignore all dirs
 !*/
 *~
