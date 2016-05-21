@@ -49,7 +49,7 @@ bool matcreuse::Get(int l,int c, int &v)
 	{
 		v=Valeurs.at(indice(l,c));
 		return true;
-	} 
+	}
 	else { v = 0; return false; }
 }
 
@@ -58,16 +58,18 @@ bool matcreuse::Get(int l,int c, int &v)
 int matcreuse::indice(int l,int c) const
 {
     int line = find(Lignes.begin(),Lignes.end(),l) - Lignes.begin();
+    if(line >= Lignes.size()) return -1;
 	if(Colonnes.size() <= c || Lignes.size() <= l) return -1;
     while((Colonnes.at(line) != c))
     {
         line = find(line+1+Lignes.begin(),Lignes.end(),l) - Lignes.begin();
+        if(line >= Lignes.size()) return -1;
     }
 
-	
+
 	if(line != Lignes.end()-Lignes.begin()) return line;
 	else return -1;
-    
+
 }
 
 void matcreuse::ReadFile(string url)
