@@ -110,3 +110,13 @@ void matcreuse::WriteFile(string s)
 	}
 }
 
+void matcreuse::transposee()
+{
+    vector<int> LignesTemp = Lignes;
+    for(int i=0;i<Valeurs.size();i++)
+    {
+        Lignes[i] = Colonnes[i];
+        Colonnes[i] = LignesTemp[i];
+    }
+}
+

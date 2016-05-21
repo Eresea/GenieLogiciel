@@ -35,6 +35,7 @@ public :
 	void ReadFile(string);
 	void WriteFile(string);
 	void Afficher();
+	void transposee();
 
 	matcreuse& operator*=(const int b)
 	{
@@ -112,6 +113,18 @@ matcreuse& operator+=(const matcreuse& b)
 friend matcreuse operator+(matcreuse a, const matcreuse& b)
 {
     a+=b;
+    return a;
+}
+
+matcreuse& operator-=(const matcreuse& b)
+{
+    (*this)+=(b*-1);
+    return *this;
+}
+
+friend matcreuse operator-(matcreuse a, const matcreuse& b)
+{
+    a-=b;
     return a;
 }
 
