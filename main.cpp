@@ -12,14 +12,14 @@ matcreuse M(N,N,N);
 matcreuse M2(N,N,N);
 M.ReadFile("Test.txt");
 M2.ReadFile("Test2.txt");
-//M.Afficher();
 M.WriteFile("Test.txt");
 M2.WriteFile("Test2.txt");
 
-M2*=M;
-M2.Afficher();
-
-//if(M.Get(0,0,tmp)) cout << tmp << endl;
+M.Afficher();
+cout << endl;
+(M+M2).Afficher();
+cout << endl;
+(M*M2).Afficher();
 
 
 return 0;

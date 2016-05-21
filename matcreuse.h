@@ -1,11 +1,11 @@
 /**
  * \file matcreuse.h
- * \brief BibliothÃ¨que de matrices creuses
+ * \brief Bibliothèque de matrices creuses
  * \author Groupe G1
  * \version 0.1
  * \date 27 april 2016
  *
- * BibliothÃ¨que de crÃ©ation de matrices creuses.
+ * Bibliothèque de création de matrices creuses.
  *
  */
 
@@ -36,37 +36,83 @@ public :
 	void WriteFile(string);
 	void Afficher();
 
+	matcreuse& operator*=(const int b)
+	{
+	    for(int i=0;i<Valeurs.size();i++)
+        {
+            Valeurs[i] = Valeurs[i] * b;
+        }
+	}
+
+	friend matcreuse operator*(matcreuse a, const int b)
+    {
+        a*=b;
+        return a;
+    }
+
 	matcreuse& operator*=(const matcreuse& b)
 	{
 		if(nbLignes != b.nbColonnes)
 		{
-			cout << "Erreur dans la multiplication de matrices. Euh.. Non" << endl;
+			cout << "Erreur dans la multiplication de matrices." << endl;
 			return *this;
 		}
-		for(int i=0;i<nbColonnes/*+1*/;i++) // Pour chaque ligne/colonne
-		{
-			int x,y;
-			int val =0;
-			for(int j=0;j<nbLignes/*+1*/;j++)
-			{
-				if(Get(j,i,x))
-				{
-					if(b.indice(i,j)+1)
-					{
-						y = b.Valeurs.at(b.indice(i,j));
-						val += x*y;
-					}
-				}
-			}			
-			Valeurs[i] = val;
-		}
-		return *this;
+		int temp,temp1,temp2;
+		vector<int> Results;
+        for(int i=0;i<Valeurs.size();i++) // Pour tous les éléments existants
+        {
+            int firstX = Lignes[i];
+            int firstY = Colonnes[i];
+            temp = 0;
+            int nbSameLine = count(Lignes.begin(),Lignes.end(),Lignes.at(i)); //Nombre d'autres éléments sur la même ligne
+            vector<int>::iterator it = find(Lignes.begin(),Lignes.end(),Lignes.at(i)); // Premier élément de la même ligne
+            for(int j=0;j<nbSameLine;j++)// Pour tous les éléments de la même ligne
+            {
+                int y1 = Colonnes[it - Lignes.begin()];
+                int x2 = y1;
+                int y2 = Colonnes[i];
+                Get(Lignes[i],y1,temp1);
+                if(b.indice(x2,y2)+1)
+                {
+                    temp2 = b.Valeurs.at(b.indice(x2,y2));
+                    temp += temp1 * temp2;
+                }
+                it = find(it+1,Lignes.end(),Lignes.at(i)); // Prochain élément de la même ligne
+            }
+            it = Lignes.begin();
+            Results.insert(Results.begin()+i,temp);
+        }
+        Valeurs = Results;
+        return *this;
 	}
 
 friend matcreuse operator*(matcreuse a, const matcreuse& b)
 {
 	a*=b;
 	return a;
+}
+
+matcreuse& operator+=(const matcreuse& b)
+{
+    if(nbLignes == b.nbLignes && nbColonnes == b.nbColonnes)
+    {
+        for(int i=0;i<Valeurs.size();i++)
+        {
+            int x = Lignes[i];
+            int y = Colonnes[i];
+            if(b.indice(x,y)+1)
+            {
+                Valeurs[i]+= b.Valeurs.at(b.indice(x,y));
+            }
+        }
+    }
+    else cout << "Les dimensions des matrices d'additions sont différentes !" << endl;
+}
+
+friend matcreuse operator+(matcreuse a, const matcreuse& b)
+{
+    a+=b;
+    return a;
 }
 
 };
