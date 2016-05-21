@@ -4,7 +4,8 @@
 
 using namespace std;
 
-string Commandes[10] = {"Afficher","+","-","*","","","","","",""};
+string Commandes[10] = {"Afficher","+","-","*","^","","","","",""};
+matcreuse** Mat; // Tableau de matrices
 
 int find(string s)
 {
