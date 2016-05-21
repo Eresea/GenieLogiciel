@@ -1,13 +1,11 @@
-Remplacer le modèle de matrices de vecteurs par 3 vector<int> :
-Au lieu de créer des grandes matrices pour peu de valeurs,
-on va créer les vecteurs ;
-- Valeurs
-- Lignes
-- Colonnes
-
-Exemple : 000000010001
-	  000110001000
-
-Valeurs : 1,1,1,1,1
-Lignes : 0,0,1,1,1
-Colonnes : 8,11,4,5,9
+﻿Console :
+Possibilité de choisir les matrices créées (Tableau de matrices en pratique)
+Ex :
+ > Read(Test12.txt)>>NewMat
+ La matrice M12 a été créée à partir du fichier Test12.txt
+ > Read(Test13.txt)>>NewMat
+ La matrice M12 a été populée par le fichier Test13.txt
+ >M1+M3
+ La matrice M3 n'existe pas.
+ >M1+M12
+ >
