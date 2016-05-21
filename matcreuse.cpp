@@ -110,6 +110,24 @@ void matcreuse::WriteFile(string s)
 	}
 }
 
+void matcreuse::Del(int x, int y)
+{
+    int index = indice(x,y);
+    if(index == -1) return;
+    Valeurs.erase(Valeurs.begin()+index);
+    Lignes.erase(Lignes.begin()+index);
+    Colonnes.erase(Colonnes.begin()+index);
+    int tempnbLignes =0;
+    int tempnbColonnes =0;
+    for(int i=0;i<Valeurs.size();i++)
+    {
+        if(Lignes[i] > tempnbLignes) tempnbLignes = Lignes[i];
+        if(Colonnes[i] > tempnbColonnes) tempnbColonnes = Colonnes[i];
+    }
+    nbLignes = tempnbLignes;
+    nbColonnes = tempnbColonnes;
+}
+
 void matcreuse::transposee()
 {
     vector<int> LignesTemp = Lignes;
@@ -118,5 +136,8 @@ void matcreuse::transposee()
         Lignes[i] = Colonnes[i];
         Colonnes[i] = LignesTemp[i];
     }
+    int temp = nbLignes;
+    nbLignes = nbColonnes;
+    nbColonnes = temp;
 }
 

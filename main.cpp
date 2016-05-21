@@ -33,8 +33,7 @@ cout << endl;
 cout << endl;
 (M*M2).Afficher();
 cout << endl;
-M.transposee();
-M.Afficher();
+(M^2).Afficher();
 
 while(Cmd != "quit")
 {

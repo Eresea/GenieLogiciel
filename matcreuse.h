@@ -30,6 +30,7 @@ public :
 	matcreuse();
 	matcreuse(vector<int>,vector<int>,vector<int>);
 	void Add(int,int,int);
+	void Del(int,int);
 	int indice(int,int) const;
 	bool Get(int,int,int&);
 	void ReadFile(string);
@@ -81,7 +82,8 @@ public :
                 it = find(it+1,Lignes.end(),Lignes.at(i)); // Prochain élément de la même ligne
             }
             it = Lignes.begin();
-            Results.insert(Results.begin()+i,temp);
+            if(temp != 0) Results.insert(Results.begin()+i,temp);
+            else Del(Lignes[i],Colonnes[i]);
         }
         Valeurs = Results;
         return *this;
@@ -104,6 +106,7 @@ matcreuse& operator+=(const matcreuse& b)
             if(b.indice(x,y)+1)
             {
                 Valeurs[i]+= b.Valeurs.at(b.indice(x,y));
+                if(Valeurs[i] == 0) Del(x,y);
             }
         }
     }
@@ -125,6 +128,22 @@ matcreuse& operator-=(const matcreuse& b)
 friend matcreuse operator-(matcreuse a, const matcreuse& b)
 {
     a-=b;
+    return a;
+}
+
+matcreuse& operator^=(const int b)
+{
+    matcreuse *m = new matcreuse(Valeurs,Lignes,Colonnes);
+    for(int i=1;i<b;i++)
+    {
+        (*this)*= *m;
+    }
+    return *this;
+}
+
+friend matcreuse operator^(matcreuse a, const int b)
+{
+    a^=b;
     return a;
 }
 

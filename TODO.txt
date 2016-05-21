@@ -9,3 +9,6 @@ Ex :
  La matrice M3 n'existe pas.
  >M1+M12
  >
+
+
+Supprimer un élément lorsque sa valeur est de 0
