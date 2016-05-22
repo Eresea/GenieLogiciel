@@ -25,21 +25,34 @@ matcreuse::matcreuse(vector<int> V,vector<int> L,vector<int> C)
 	}
 }
 
-void matcreuse::Add(int l,int c,int v)
+void matcreuse::Add(int l,int c,int v)//Ajoute ou remplace
 {
-	int tmp=indice(l,c);
-	if(tmp==-1)
-	{
-    	Valeurs.push_back(v);
-    	Lignes.push_back(l);
-    	Colonnes.push_back(c);
-	}
-	else
-	{
-		Valeurs[tmp]=v;
-	}
-	if(l > nbLignes) nbLignes = l;
-	if(c > nbColonnes) nbColonnes = c;
+    bool Correct = true;
+    for(int i=0;i<Lignes.size();i++) // Empêche l'ajout de valeurs deja presentes en Ligne/Colonne
+            {
+                if((Lignes.at(i) == l) && (Colonnes.at(i) == c))
+                {
+                    Correct = false;
+                    Valeurs[i] = v;
+                    break;
+                }
+            }
+    if(Correct)
+    {
+        int tmp=indice(l,c);
+        if(tmp==-1)
+        {
+            Valeurs.push_back(v);
+            Lignes.push_back(l);
+            Colonnes.push_back(c);
+        }
+        else
+        {
+            Valeurs[tmp]=v;
+        }
+        if(l > nbLignes) nbLignes = l;
+        if(c > nbColonnes) nbColonnes = c;
+    }
 }
 
 
@@ -79,17 +92,33 @@ void matcreuse::ReadFile(string url)
 	{
 		string s;
         vector<string> Str;
+        bool Correct = true;
 	    while(fic>>s)			// Tant qu'il y a des lignes dans le fichier
 		{
-            Str = Split(s,',');
-            Valeurs.insert(Valeurs.end(),atoi(Str[2].c_str()));
-            Lignes.insert(Lignes.end(),atoi(Str[0].c_str()));
-            Colonnes.insert(Colonnes.end(),atoi(Str[1].c_str()));
-			if(atoi(Str[0].c_str()) > nbLignes) nbLignes = atoi(Str[0].c_str());
-			if(atoi(Str[1].c_str()) > nbColonnes) nbColonnes = atoi(Str[1].c_str());
-		}
-		fic.close();
+		    Str = Split(s,',');
+		    for(int i=0;i<Lignes.size();i++) // Empêche l'ajout de valeurs deja presentes en Ligne/Colonne
+            {
+                if((Lignes.at(i) == atoi(Str[0].c_str())) && (Colonnes.at(i) == atoi(Str[1].c_str())))
+                {
+                    Correct = false;
+                    //Possibilité de changer afin de remplacer l'ancienne valeur par celle du nouveau fichier
+                    //Valeurs[i] = atoi(Str[2].c_str());
+                    break;
+                }
+            }
+            if(Correct)
+            {
+                Valeurs.push_back(atoi(Str[2].c_str()));
+                Lignes.push_back(atoi(Str[0].c_str()));
+                Colonnes.push_back(atoi(Str[1].c_str()));
+                if(atoi(Str[0].c_str()) > nbLignes) nbLignes = atoi(Str[0].c_str());
+                if(atoi(Str[1].c_str()) > nbColonnes) nbColonnes = atoi(Str[1].c_str());
+            }
+            else cout << "Deja pris" << endl;
+            Correct = true;
+        }
     }
+    fic.close();
 }
 
 void matcreuse::Afficher()
