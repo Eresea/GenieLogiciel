@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['indice',['indice',['../classmatcreuse.html#ac8421c33ec197286b802533aed1bf436',1,'matcreuse']]]
+  ['del',['Del',['../classmatcreuse.html#ac9fa99705939ebabee6567a26bbc60af',1,'matcreuse']]]
 ];
