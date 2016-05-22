@@ -1,14 +1,3 @@
-﻿Console :
-Possibilité de choisir les matrices créées (Tableau de matrices en pratique)
-Ex :
- > Read(Test12.txt)>>NewMat
- La matrice M12 a été créée à partir du fichier Test12.txt
- > Read(Test13.txt)>>NewMat
- La matrice M12 a été populée par le fichier Test13.txt
- >M1+M3
- La matrice M3 n'existe pas.
- >M1+M12
- >
-
-
-Supprimer un élément lorsque sa valeur est de 0
+﻿Console : 
+Ajouter les commandes ;
+help

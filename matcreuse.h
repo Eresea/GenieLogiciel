@@ -86,6 +86,10 @@ public :
             else Del(Lignes[i],Colonnes[i]);
         }
         Valeurs = Results;
+        for(int i=Valeurs.size();i>=0;i--)
+        {
+            if(Valeurs[i] == 0) Del(Lignes[i],Colonnes[i]);
+        }
         return *this;
 	}
 
@@ -103,11 +107,15 @@ matcreuse& operator+=(const matcreuse& b)
         {
             int x = Lignes[i];
             int y = Colonnes[i];
+
             if(b.indice(x,y)+1)
             {
                 Valeurs[i]+= b.Valeurs.at(b.indice(x,y));
-                if(Valeurs[i] == 0) Del(x,y);
             }
+        }
+        for(int i=Valeurs.size();i>=0;i--)
+        {
+            if(Valeurs[i] == 0) Del(Lignes[i],Colonnes[i]);
         }
     }
     else cout << "Les dimensions des matrices d'additions sont différentes !" << endl;

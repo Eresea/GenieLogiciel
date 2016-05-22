@@ -94,6 +94,7 @@ void matcreuse::ReadFile(string url)
 
 void matcreuse::Afficher()
 {
+    if(Valeurs.size() == 0) cout << "Matrice creuse vide !" << endl;
 	for(int i=0;i<Valeurs.size();i++)
 	{
 		cout << Lignes[i] << "," << Colonnes[i] << " : " << Valeurs[i] << endl;
