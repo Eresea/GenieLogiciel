@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <random>
+#include <ctime>
 
 using namespace std;
 
@@ -248,19 +249,21 @@ void handleCommandes(string s)
 
 int main(int argc , char** argv)
 {
+double elapsedTime;
+clock_t tbegin,tend;
 string Cmd = "";
 cout << "> ";
 getline(cin,Cmd);
 
 while(Cmd != "quit")
 {
+    tbegin = clock();
     handleCommandes(Cmd);
-
+    tend = clock();
+    elapsedTime = double(tend-tbegin) / CLOCKS_PER_SEC;
+    cout << "Temps d'execution : " << elapsedTime << endl;
     cout << "> ";
     getline(cin,Cmd);
 }
-
-
 return 0;
-
 }
